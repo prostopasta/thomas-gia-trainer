@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GIA: Number Speed & Accuracy — Thomas GIA Trainer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="crumb">
+    <a href="index.html"><b>Thomas GIA Hub</b></a> · Task 3: Number Speed
+  </div>
+  <div class="spacer"></div>
+  <div class="topbar-actions">
+    <div class="scale-control pill-selector" title="UI Scaling: 50%–150% (Click % to reset 100%)">
+      <button class="pill-option btn-scale-down" title="Zoom out">－</button>
+      <span class="pill-label scale-value-label" style="cursor: pointer; padding: 2px 4px; user-select: none;">100%</span>
+      <button class="pill-option btn-scale-up" title="Zoom in">＋</button>
+    </div>
+    <div class="pill-selector">
+      <button class="pill-option lang-btn" data-lang="ru">RU</button>
+      <button class="pill-option lang-btn active" data-lang="en">EN</button>
+    </div>
+    <button class="navlink btn-sidebar-toggle" title="Toggle Sidebar Menu">☰ Menu: Visible</button>
+    <button id="btn-fullscreen-toggle" class="navlink" title="Toggle Fullscreen">⛶ Fullscreen</button>
+        <button id="btn-sound-toggle" class="navlink">🔊 Sound</button>
+    <button class="theme-toggle" title="Toggle theme">🌓</button>
+  </div>
+</div>
+
+<div class="shell">
+  <aside class="side">
+        <div class="grp">
+      <span class="grp-label i18n-ru">Разделы GIA</span>
+      <span class="grp-label i18n-en">Subtests Navigation</span>
+      <a href="index.html" class="">
+        <span class="nav-text">
+          <span class="i18n-ru">00. Обзор и стратегия</span>
+          <span class="i18n-en">00. Overview & Strategy</span>
+        </span>
+      </a>
+      <a href="algorithms.html" class="">
+        <span class="nav-text">
+          <span class="i18n-ru">🧠 Алгоритмы и хаки</span>
+          <span class="i18n-en">🧠 Algorithms & Hacks</span>
+        </span>
+      </a>
+      <a href="reasoning.html" class="">
+        <span class="nav-text">
+          <span class="i18n-ru">01. Рассуждения</span>
+          <span class="i18n-en">01. Reasoning</span>
+        </span>
+        <span class="badge">Task 1</span>
+      </a>
+      <a href="perceptual-speed.html" class="">
+        <span class="nav-text">
+          <span class="i18n-ru">02. Скорость восприятия</span>
+          <span class="i18n-en">02. Perceptual Speed</span>
+        </span>
+        <span class="badge">Task 2</span>
+      </a>
+      <a href="number-speed.html" class="active">
+        <span class="nav-text">
+          <span class="i18n-ru">03. Числа и точность</span>
+          <span class="i18n-en">03. Number Speed</span>
+        </span>
+        <span class="badge">Task 3</span>
+      </a>
+      <a href="word-meaning.html" class="">
+        <span class="nav-text">
+          <span class="i18n-ru">04. Значение слов</span>
+          <span class="i18n-en">04. Word Meaning</span>
+        </span>
+        <span class="badge">Task 4</span>
+      </a>
+      <a href="spatial-visualisation.html" class="">
+        <span class="nav-text">
+          <span class="i18n-ru">05. Пространство</span>
+          <span class="i18n-en">05. Spatial Visualisation</span>
+        </span>
+        <span class="badge">Task 5</span>
+      </a>
+    </div>
+
+<div class="grp">
+      <span class="grp-label i18n-ru">Официальные ресурсы</span>
+      <span class="grp-label i18n-en">Official Resources</span>
+      <a href="https://www.thomas.co/sites/default/files/2025-03/GIA%20Example%20Booklet_2025.pdf" target="_blank"><span class="nav-text">📄 Thomas Booklet (PDF) ↗</span></a>
+      <a href="https://www.thomas.co/thomas-candidate-test" target="_blank"><span class="nav-text">🌐 Candidate Portal ↗</span></a>
+    </div>
+  </aside>
+
+  <main>
+    <h1 class="page-title"><span class="i18n-ru">Task 3: Number Speed & Accuracy (Числа и точность)</span><span class="i18n-en">Task 3: Number Speed & Accuracy</span></h1>
+    <p class="page-sub">
+      <span class="i18n-ru">
+        Тест на числовую интуицию и скорость базовых вычислений. В каждой карточке даны 3 числа. Ваша задача — найти наименьшее и наибольшее числа и определить, какое из них <b>дальше</b> от оставшегося третьего числа.
+      </span>
+      <span class="i18n-en">
+        Measures numerical intuition and quick estimation. Given 3 numbers, identify the lowest and highest, then click which extreme is <b>further</b> from the remaining middle value.
+      </span>
+    </p>
+
+    <!-- Setup Panel -->
+    <div id="setup-panel" class="card">
+      <h3><span class="i18n-ru">Режим тренировки</span><span class="i18n-en">Training Mode</span></h3>
+      <p style="margin-bottom: 16px;">
+        <span class="i18n-ru">В реальном тесте Thomas GIA на данный блок отводится <b>около 2–3 минут</b>.</span>
+        <span class="i18n-en">In official Thomas GIA tests, this section lasts <b>approximately 2–3 minutes</b>.</span>
+      </p>
+
+      <div class="pill-row" style="display: flex; gap: 12px; margin-bottom: 24px; flex-wrap: wrap;">
+        <button class="btn btn-primary btn-large" onclick="startTest(120)">
+          ⏱️ <span class="i18n-ru">Спринт 2 минуты</span><span class="i18n-en">2-Min Sprint</span>
+        </button>
+        <button class="btn btn-large" style="border: 2px solid var(--accent); color: var(--accent);" onclick="startTest(0, true)">
+          📐 <span class="i18n-ru">Алгоритм средней точки (Midpoint)</span><span class="i18n-en">Midpoint Algorithm Mode</span>
+        </button>
+        <button class="btn btn-large" onclick="startTest(0, false)">
+          🎯 <span class="i18n-ru">Бесконечная практика (С разбором)</span><span class="i18n-en">Practice Mode</span>
+        </button>
+      
+      <div style="margin-top: 14px;">
+        <label style="cursor: pointer; display: inline-flex; align-items: center; gap: 8px; font-size: 13.5px; color: var(--ink-muted); user-select: none;">
+          <input type="checkbox" id="chk-auto-fs" onchange="setAutoFullscreen(this.checked)" style="cursor: pointer; width: 16px; height: 16px;">
+          <span>⛶ <span class="i18n-ru">Авто-полный экран при старте</span><span class="i18n-en">Auto-fullscreen on test start</span></span>
+        </label>
+      </div>
+      </div>
+
+      <div class="callout canonical">
+        <div class="callout-title">
+          <span class="i18n-ru">💡 Алгоритм решения: Правило середины (Midpoint)</span>
+          <span class="i18n-en">💡 Shortcut: Midpoint Balance Rule</span>
+        </div>
+        <div class="i18n-ru">
+          <ul style="margin: 6px 0 0 0; padding-left: 20px; line-height: 1.6;">
+            <li>Найдите наименьшее (<b>Min</b>) и наибольшее (<b>Max</b>) числа.</li>
+            <li>Определите середину между ними: <code>Центр = (Min + Max) / 2</code>.</li>
+            <li><b>Правило противоположности:</b>
+              <ul>
+                <li>Если третье число <b>больше центра</b> ➔ ответ: <b>Min (левый край)</b>.</li>
+                <li>Если третье число <b>меньше центра</b> ➔ ответ: <b>Max (правый край)</b>.</li>
+              </ul>
+            </li>
+            <li><b>Управление:</b> Кликайте по карточке с выбранным числом.</li>
+          </ul>
+        </div>
+        <div class="i18n-en">
+          <ul style="margin: 6px 0 0 0; padding-left: 20px; line-height: 1.6;">
+            <li>Spot <b>Min</b> and <b>Max</b>.</li>
+            <li>Find center: <code>Center = (Min + Max) / 2</code>.</li>
+            <li><b>Opposite Side Rule:</b>
+              <ul>
+                <li>If 3rd number <b>> Center</b> ➔ Answer: <b>Min</b>.</li>
+                <li>If 3rd number <b>< Center</b> ➔ Answer: <b>Max</b>.</li>
+              </ul>
+            </li>
+            <li><b>Controls:</b> Click the card with the chosen number.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Test Arena -->
+    <div id="test-arena" class="test-arena" style="display: none;">
+      <div class="test-header">
+        <div class="test-stats-row">
+          <div class="stat-pill">
+            <span class="label i18n-ru">Всего</span><span class="label i18n-en">Total</span>
+            <span id="stat-answered" class="val">0</span>
+          </div>
+          <div class="stat-pill">
+            <span class="label i18n-ru">Верно</span><span class="label i18n-en">Correct</span>
+            <span id="stat-correct" class="val">0</span>
+          </div>
+          <div class="stat-pill">
+            <span class="label i18n-ru">Точность</span><span class="label i18n-en">Accuracy</span>
+            <span id="stat-accuracy" class="val">100%</span>
+          </div>
+          <div class="stat-pill">
+            <span class="label i18n-ru">Темп</span><span class="label i18n-en">Speed</span>
+            <span id="stat-speed" class="val">0 /мин</span>
+          </div>
+          <div class="stat-pill">
+            <span class="label i18n-ru">Серия 🔥</span><span class="label i18n-en">Streak 🔥</span>
+            <span id="stat-streak" class="val">0</span>
+          </div>
+        </div>
+        <div id="timer-display" class="timer-box">02:00</div>
+      </div>
+
+      <div class="progress-bar-container">
+        <div id="progress-fill" class="progress-bar-fill" style="width: 0%;"></div>
+      </div>
+
+      <div id="stage-arena" class="stage-content">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+
+    <!-- Results Panel -->
+    <div id="results-panel" style="display: none;"></div>
+
+  </main>
+</div>
+
+<script src="trainer-core.js"></script>
+<script src="number-speed.js"></script>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GIA: Spatial Visualisation — Thomas GIA Trainer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="crumb">
+    <a href="index.html"><b>Thomas GIA Hub</b></a> · Task 5: Spatial Visualisation
+  </div>
+  <div class="spacer"></div>
+  <div class="topbar-actions">
+    <div class="scale-control pill-selector" title="UI Scaling: 50%–150% (Click % to reset 100%)">
+      <button class="pill-option btn-scale-down" title="Zoom out">－</button>
+      <span class="pill-label scale-value-label" style="cursor: pointer; padding: 2px 4px; user-select: none;">100%</span>
+      <button class="pill-option btn-scale-up" title="Zoom in">＋</button>
+    </div>
+    <div class="pill-selector">
+      <button class="pill-option lang-btn" data-lang="ru">RU</button>
+      <button class="pill-option lang-btn active" data-lang="en">EN</button>
+    </div>
+    <button class="navlink btn-sidebar-toggle" title="Toggle Sidebar Menu">☰ Menu: Visible</button>
+    <button id="btn-fullscreen-toggle" class="navlink" title="Toggle Fullscreen">⛶ Fullscreen</button>
+        <button id="btn-sound-toggle" class="navlink">🔊 Sound</button>
+    <button class="theme-toggle" title="Toggle theme">🌓</button>
+  </div>
+</div>
+
+<div class="shell">
+  <aside class="side">
+        <div class="grp">
+      <span class="grp-label i18n-ru">Разделы GIA</span>
+      <span class="grp-label i18n-en">Subtests Navigation</span>
+      <a href="index.html" class="">
+        <span class="nav-text">
+          <span class="i18n-ru">00. Обзор и стратегия</span>
+          <span class="i18n-en">00. Overview & Strategy</span>
+        </span>
+      </a>
+      <a href="algorithms.html" class="">
+        <span class="nav-text">
+          <span class="i18n-ru">🧠 Алгоритмы и хаки</span>
+          <span class="i18n-en">🧠 Algorithms & Hacks</span>
+        </span>
+      </a>
+      <a href="reasoning.html" class="">
+        <span class="nav-text">
+          <span class="i18n-ru">01. Рассуждения</span>
+          <span class="i18n-en">01. Reasoning</span>
+        </span>
+        <span class="badge">Task 1</span>
+      </a>
+      <a href="perceptual-speed.html" class="">
+        <span class="nav-text">
+          <span class="i18n-ru">02. Скорость восприятия</span>
+          <span class="i18n-en">02. Perceptual Speed</span>
+        </span>
+        <span class="badge">Task 2</span>
+      </a>
+      <a href="number-speed.html" class="">
+        <span class="nav-text">
+          <span class="i18n-ru">03. Числа и точность</span>
+          <span class="i18n-en">03. Number Speed</span>
+        </span>
+        <span class="badge">Task 3</span>
+      </a>
+      <a href="word-meaning.html" class="">
+        <span class="nav-text">
+          <span class="i18n-ru">04. Значение слов</span>
+          <span class="i18n-en">04. Word Meaning</span>
+        </span>
+        <span class="badge">Task 4</span>
+      </a>
+      <a href="spatial-visualisation.html" class="active">
+        <span class="nav-text">
+          <span class="i18n-ru">05. Пространство</span>
+          <span class="i18n-en">05. Spatial Visualisation</span>
+        </span>
+        <span class="badge">Task 5</span>
+      </a>
+    </div>
+
+<div class="grp">
+      <span class="grp-label i18n-ru">Официальные ресурсы</span>
+      <span class="grp-label i18n-en">Official Resources</span>
+      <a href="https://www.thomas.co/sites/default/files/2025-03/GIA%20Example%20Booklet_2025.pdf" target="_blank"><span class="nav-text">📄 Thomas Booklet (PDF) ↗</span></a>
+      <a href="https://www.thomas.co/thomas-candidate-test" target="_blank"><span class="nav-text">🌐 Candidate Portal ↗</span></a>
+    </div>
+  </aside>
+
+  <main>
+    <h1 class="page-title"><span class="i18n-ru">Task 5: Spatial Visualisation (Пространственное мышление)</span><span class="i18n-en">Task 5: Spatial Visualisation</span></h1>
+    <p class="page-sub">
+      <span class="i18n-ru">
+        Тест на мысленное вращение символов и распознавание зеркальных отражений. На экране отображаются две пары символов (в двух окнах). Для каждой пары нужно определить, является ли нижний символ точной копией верхнего (просто повёрнутой), или же он зеркально отражён. Затем укажите, сколько всего пар совпадают (0, 1 или 2).
+      </span>
+      <span class="i18n-en">
+        Assesses 2D mental rotation and spatial orientation. You are presented with 2 pairs of symbols (in two boxes). Determine if the bottom symbol in each pair is identical by rotation only, or mirrored. Count total matching pairs (0, 1, or 2).
+      </span>
+    </p>
+
+    <!-- Setup Panel -->
+    <div id="setup-panel" class="card">
+      <h3><span class="i18n-ru">Режим тренировки</span><span class="i18n-en">Training Mode</span></h3>
+      <p style="margin-bottom: 16px;">
+        <span class="i18n-ru">В реальном тесте Thomas GIA на данный блок отводится <b>около 2–3 минут</b>.</span>
+        <span class="i18n-en">In official Thomas GIA tests, this section lasts <b>approximately 2–3 minutes</b>.</span>
+      </p>
+
+      <div class="pill-row" style="display: flex; gap: 12px; margin-bottom: 24px; flex-wrap: wrap;">
+        <button class="btn btn-primary btn-large" onclick="startTest(120)">
+          ⏱️ <span class="i18n-ru">Спринт 2 минуты</span><span class="i18n-en">2-Min Sprint</span>
+        </button>
+        <button class="btn btn-large" style="border: 2px solid var(--accent); color: var(--accent);" onclick="startTest(0, true)">
+          🧭 <span class="i18n-ru">Обучение алгоритму хиральности (Spine & Loop)</span><span class="i18n-en">Spine & Loop Chirality Trainer</span>
+        </button>
+        <button class="btn btn-large" onclick="startTest(0, false)">
+          🎯 <span class="i18n-ru">Бесконечная практика (С разбором)</span><span class="i18n-en">Practice Mode</span>
+        </button>
+      
+      <div style="margin-top: 14px;">
+        <label style="cursor: pointer; display: inline-flex; align-items: center; gap: 8px; font-size: 13.5px; color: var(--ink-muted); user-select: none;">
+          <input type="checkbox" id="chk-auto-fs" onchange="setAutoFullscreen(this.checked)" style="cursor: pointer; width: 16px; height: 16px;">
+          <span>⛶ <span class="i18n-ru">Авто-полный экран при старте</span><span class="i18n-en">Auto-fullscreen on test start</span></span>
+        </label>
+      </div>
+      </div>
+
+      <div class="callout canonical">
+        <div class="callout-title">
+          <span class="i18n-ru">💡 Алгоритм решения: «Правило хребта» (Spine & Loop)</span>
+          <span class="i18n-en">💡 Shortcut: Spine & Loop Chirality Rule</span>
+        </div>
+        <div class="i18n-ru">
+          <ul style="margin: 6px 0 0 0; padding-left: 20px; line-height: 1.6;">
+            <li><b>Не вращайте фигуру целиком!</b> Определяйте сторону петли относительно прямого ствола.</li>
+            <li>Мысленно двигайтесь по прямому стволу от <b>основания к макушке</b>:
+              <ul>
+                <li>Петля <b>СПРАВА</b> ➔ это <b>Оригинал (R)</b>.</li>
+                <li>Петля <b>СЛЕВА</b> ➔ это <b>Зеркало (Я)</b>.</li>
+              </ul>
+            </li>
+            <li><b>Правило пары:</b> <code>(R, R)</code> ➔ СОВПАДАЕТ, <code>(Я, Я)</code> ➔ СОВПАДАЕТ, <code>(R, Я)</code> ➔ РАЗЛИЧАЕТСЯ.</li>
+            <li>Посчитайте число совпадений (0, 1 или 2) и нажмите <kbd>0</kbd>, <kbd>1</kbd>, <kbd>2</kbd>.</li>
+          </ul>
+        </div>
+        <div class="i18n-en">
+          <ul style="margin: 6px 0 0 0; padding-left: 20px; line-height: 1.6;">
+            <li><b>Zero Mental Rotation!</b> Check loop placement relative to straight stem vector.</li>
+            <li>Travel up the straight stem from <b>base to apex</b>:
+              <ul>
+                <li>Loop on <b>RIGHT</b> ➔ <b>Original (R)</b>.</li>
+                <li>Loop on <b>LEFT</b> ➔ <b>Mirrored (Я)</b>.</li>
+              </ul>
+            </li>
+            <li><b>Match Rule:</b> <code>(R, R)</code> ➔ MATCH, <code>(Я, Я)</code> ➔ MATCH, <code>(R, Я)</code> ➔ DIFFER.</li>
+            <li>Count matching pairs (0, 1, or 2) and press <kbd>0</kbd>, <kbd>1</kbd>, <kbd>2</kbd>.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Test Arena -->
+    <div id="test-arena" class="test-arena" style="display: none;">
+      <div class="test-header">
+        <div class="test-stats-row">
+          <div class="stat-pill">
+            <span class="label i18n-ru">Всего</span><span class="label i18n-en">Total</span>
+            <span id="stat-answered" class="val">0</span>
+          </div>
+          <div class="stat-pill">
+            <span class="label i18n-ru">Верно</span><span class="label i18n-en">Correct</span>
+            <span id="stat-correct" class="val">0</span>
+          </div>
+          <div class="stat-pill">
+            <span class="label i18n-ru">Точность</span><span class="label i18n-en">Accuracy</span>
+            <span id="stat-accuracy" class="val">100%</span>
+          </div>
+          <div class="stat-pill">
+            <span class="label i18n-ru">Темп</span><span class="label i18n-en">Speed</span>
+            <span id="stat-speed" class="val">0 /мин</span>
+          </div>
+          <div class="stat-pill">
+            <span class="label i18n-ru">Серия 🔥</span><span class="label i18n-en">Streak 🔥</span>
+            <span id="stat-streak" class="val">0</span>
+          </div>
+        </div>
+        <div id="timer-display" class="timer-box">02:00</div>
+      </div>
+
+      <div class="progress-bar-container">
+        <div id="progress-fill" class="progress-bar-fill" style="width: 0%;"></div>
+      </div>
+
+      <div id="stage-arena" class="stage-content">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+
+    <!-- Results Panel -->
+    <div id="results-panel" style="display: none;"></div>
+
+  </main>
+</div>
+
+<script src="trainer-core.js"></script>
+<script src="spatial-visualisation.js"></script>
+</body>
+</html>

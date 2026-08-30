@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GIA Optimal Algorithms & Mental Hacks — Thomas GIA Trainer</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .algo-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow);
+    }
+    .algo-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .math-box {
+      background: var(--surface-2);
+      border-left: 4px solid var(--accent);
+      padding: 14px 18px;
+      border-radius: 0 6px 6px 0;
+      font-family: ui-monospace, monospace;
+      margin: 14px 0;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0;
+      font-size: 14px;
+    }
+    .compare-table th, .compare-table td {
+      border: 1px solid var(--border);
+      padding: 10px 14px;
+      text-align: left;
+    }
+    .compare-table th {
+      background: var(--surface-2);
+    }
+    .visual-axis-demo {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+      margin: 16px 0;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="crumb">
+    <a href="index.html"><b>Thomas GIA Hub</b></a> · 
+    <span class="i18n-ru">🧠 Руководство по оптимальным алгоритмам</span>
+    <span class="i18n-en">🧠 Algorithms & Mental Hacks Guide</span>
+  </div>
+  <div class="spacer"></div>
+  <div class="topbar-actions">
+    <div class="scale-control pill-selector" title="UI Scaling: 50%–150% (Click % to reset 100%)">
+      <button class="pill-option btn-scale-down" title="Zoom out">－</button>
+      <span class="pill-label scale-value-label" style="cursor: pointer; padding: 2px 4px; user-select: none;">100%</span>
+      <button class="pill-option btn-scale-up" title="Zoom in">＋</button>
+    </div>
+    <div class="pill-selector">
+      <button class="pill-option lang-btn" data-lang="ru">RU</button>
+      <button class="pill-option lang-btn active" data-lang="en">EN</button>
+    </div>
+    <button class="navlink btn-sidebar-toggle" title="Toggle Sidebar Menu">☰ Menu: Visible</button>
+    <button id="btn-fullscreen-toggle" class="navlink" title="Toggle Fullscreen">⛶ Fullscreen</button>
+        <button id="btn-sound-toggle" class="navlink">🔊 Sound</button>
+    <button class="theme-toggle" title="Toggle theme">🌓</button>
+  </div>
+</div>
+
+<div class="shell">
+  <aside class="side">
+    <div class="grp">
+      <span class="grp-label i18n-ru">Разделы GIA</span>
+      <span class="grp-label i18n-en">Subtests Navigation</span>
+      <a href="index.html">
+        <span class="nav-text">
+          <span class="i18n-ru">00. Обзор и стратегия</span>
+          <span class="i18n-en">00. Overview & Strategy</span>
+        </span>
+      </a>
+      <a href="algorithms.html" class="active">
+        <span class="nav-text">
+          <span class="i18n-ru">🧠 Алгоритмы и хаки</span>
+          <span class="i18n-en">🧠 Algorithms & Hacks</span>
+        </span>
+      </a>
+      <a href="reasoning.html">
+        <span class="nav-text">
+          <span class="i18n-ru">01. Рассуждения</span>
+          <span class="i18n-en">01. Reasoning</span>
+        </span>
+        <span class="badge">Task 1</span>
+      </a>
+      <a href="perceptual-speed.html">
+        <span class="nav-text">
+          <span class="i18n-ru">02. Скорость восприятия</span>
+          <span class="i18n-en">02. Perceptual Speed</span>
+        </span>
+        <span class="badge">Task 2</span>
+      </a>
+      <a href="number-speed.html">
+        <span class="nav-text">
+          <span class="i18n-ru">03. Числа и точность</span>
+          <span class="i18n-en">03. Number Speed</span>
+        </span>
+        <span class="badge">Task 3</span>
+      </a>
+      <a href="word-meaning.html">
+        <span class="nav-text">
+          <span class="i18n-ru">04. Значение слов</span>
+          <span class="i18n-en">04. Word Meaning</span>
+        </span>
+        <span class="badge">Task 4</span>
+      </a>
+      <a href="spatial-visualisation.html">
+        <span class="nav-text">
+          <span class="i18n-ru">05. Пространство</span>
+          <span class="i18n-en">05. Spatial Visualisation</span>
+        </span>
+        <span class="badge">Task 5</span>
+      </a>
+    </div>
+
+    <div class="grp">
+      <span class="grp-label i18n-ru">Официальные ресурсы</span>
+      <span class="grp-label i18n-en">Official Resources</span>
+      <a href="https://www.thomas.co/sites/default/files/2025-03/GIA%20Example%20Booklet_2025.pdf" target="_blank"><span class="nav-text">📄 Thomas Booklet (PDF) ↗</span></a>
+      <a href="https://www.thomas.co/thomas-candidate-test" target="_blank"><span class="nav-text">🌐 Candidate Portal ↗</span></a>
+    </div>
+  </aside>
+
+  <main>
+    <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 8px;">
+      <span class="chip canonical">Cognitive Optimization</span>
+      <span class="chip good">Speed Algorithms</span>
+    </div>
+
+    <h1 class="page-title">
+      <span class="i18n-ru">Математические и когнитивные алгоритмы Thomas GIA</span>
+      <span class="i18n-en">Mathematical & Cognitive Shortcuts for Thomas GIA</span>
+    </h1>
+    <p class="page-sub">
+      <span class="i18n-ru">
+        Как перестать решать задачи «в лоб» и сократить время реакции с 2.5 секунд до 0.4 секунды за счёт минимизации количества операций в рабочей памяти.
+      </span>
+      <span class="i18n-en">
+        How to bypass brute-force cognitive loads and cut response latency from 2.5s down to 0.4s via working memory optimization.
+      </span>
+    </p>
+
+    <!-- Strategy Summary Callout -->
+    <div class="callout canonical">
+      <div class="callout-title">
+        <span class="i18n-ru">💡 В чём главный секрет высоких баллов (95+ процентиль) на GIA?</span>
+        <span class="i18n-en">💡 The Secret to 95+ Percentile GIA Performance:</span>
+      </div>
+      <p style="margin: 6px 0;" class="i18n-ru">
+        В Thomas GIA побеждает не тот, кто быстрее считает в уме столбиком или крутит картинки, а тот, кто использует <b>булеву логику, подавление субвокализации, правило средней точки и топологические инварианты</b>.
+        Замена сложных вычислений простыми визуальными правилами экономит 70% времени и предотвращает усталость мозга.
+      </p>
+      <p style="margin: 6px 0;" class="i18n-en">
+        High percentiles are achieved not by raw calculation speed, but through <b>boolean XOR logic, subvocalization suppression, midpoint balance rules, and topological invariants</b>. Replacing multi-step mental arithmetic with single rule checks saves 70% time.
+      </p>
+    </div>
+
+    <!-- Section 1: Reasoning -->
+    <div class="algo-card" id="algo-reasoning">
+      <div class="algo-header">
+        <h2>
+          <span class="i18n-ru">01. Reasoning (Рассуждения) — Правило логического XOR</span>
+          <span class="i18n-en">01. Reasoning & Deduction — Boolean XOR Sign Rule</span>
+        </h2>
+        <a href="reasoning.html" class="btn btn-primary">
+          <span class="i18n-ru">Тренировать →</span>
+          <span class="i18n-en">Practice →</span>
+        </a>
+      </div>
+
+      <p class="i18n-ru"><b>Формулировка задачи:</b> Утверждение: <i>«Анна быстрее Бориса»</i>. Утверждение исчезает. Вопрос: <i>«Кто медленнее?»</i>.</p>
+      <p class="i18n-en"><b>Problem Statement:</b> Statement: <i>"Anna is faster than Boris"</i>. Disappears. Question: <i>"Who is slower?"</i>.</p>
+
+      <table class="compare-table">
+        <tr>
+          <th style="width: 50%;">
+            <span class="i18n-ru">Метод «в лоб» (~2.0 сек)</span>
+            <span class="i18n-en">Brute Force (~2.0s)</span>
+          </th>
+          <th style="width: 50%;">
+            <span class="i18n-ru">Правило XOR (~0.5 сек)</span>
+            <span class="i18n-en">XOR Rule (~0.5s)</span>
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <span class="i18n-ru">Реконструировать в воображении жизненную сцену, запоминать визуальные образы.</span>
+            <span class="i18n-en">Reconstructing real-world imagery and memorizing situational narrative.</span>
+          </td>
+          <td>
+            <div class="i18n-ru">
+              Парсинг как 2 переменных: <b>A (первое имя)</b> и <b>B (второе имя)</b>:<br>
+              • Знак утверждения: <code>+</code> (тяжелее/выше) или <code>-</code> (легче/ниже).<br>
+              • Знак вопроса: <code>+</code> или <code>-</code>.<br>
+              • Знаки <b>СОВПАЛИ (+ и + или - и -)</b> ➔ Ответ: <b>A (первое имя)</b>.<br>
+              • Знаки <b>РАЗНЫЕ (+ и -)</b> ➔ Ответ: <b>B (второе имя)</b>.
+            </div>
+            <div class="i18n-en">
+              Parsing as 2 variables: <b>A (1st name)</b> and <b>B (2nd name)</b>:<br>
+              • Statement sign: <code>+</code> (heavier/taller) or <code>-</code> (lighter/shorter).<br>
+              • Question sign: <code>+</code> or <code>-</code>.<br>
+              • Signs <b>MATCH (+/+ or -/-)</b> ➔ Answer: <b>A (1st name)</b>.<br>
+              • Signs <b>OPPOSITE (+/-)</b> ➔ Answer: <b>B (2nd name)</b>.
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Section 2: Perceptual Speed -->
+    <div class="algo-card" id="algo-perceptual">
+      <div class="algo-header">
+        <h2>
+          <span class="i18n-ru">02. Perceptual Speed (Скорость восприятия) — Подавление субвокализации</span>
+          <span class="i18n-en">02. Perceptual Speed — Subvocalization Suppression</span>
+        </h2>
+        <a href="perceptual-speed.html" class="btn btn-primary">
+          <span class="i18n-ru">Тренировать →</span>
+          <span class="i18n-en">Practice →</span>
+        </a>
+      </div>
+
+      <p class="i18n-ru"><b>Формулировка задачи:</b> 4 вертикальные пары букв <code>[Е/е, П/у, Д/д, К/к]</code>. Указать число совпадений (0–4).</p>
+      <p class="i18n-en"><b>Problem Statement:</b> 4 vertical letter pairs <code>[E/e, Q/y, D/d, K/k]</code>. Identify match count (0–4).</p>
+
+      <ul style="padding-left: 20px; line-height: 1.7;">
+        <li>
+          <b><span class="i18n-ru">Запрет внутреннего голоса:</span><span class="i18n-en">Mute Internal Speech:</span></b> 
+          <span class="i18n-ru">Не проговаривайте буквы про себя. Внутренняя речь ограничена скоростью 150–200 слов/мин.</span>
+          <span class="i18n-en">Do not voice letter names internally. Speech buffers bottleneck visual processing speed.</span>
+        </li>
+        <li>
+          <b><span class="i18n-ru">Единая саккада глаз:</span><span class="i18n-en">Single Saccadic Sweep:</span></b> 
+          <span class="i18n-ru">Взгляд скользит слева направо единым движением. В памяти накапливается только счетчик: <code>0... 1... 2</code>.</span>
+          <span class="i18n-en">Sweep eyes continuously from left to right. Maintain an internal match accumulator counter only: <code>0... 1... 2</code>.</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Section 3: Number Speed -->
+    <div class="algo-card" id="algo-number">
+      <div class="algo-header">
+        <h2>
+          <span class="i18n-ru">03. Number Speed & Accuracy (Числа) — Алгоритм средней точки (Midpoint)</span>
+          <span class="i18n-en">03. Number Speed & Accuracy — Midpoint Balance Algorithm</span>
+        </h2>
+        <a href="number-speed.html" class="btn btn-primary">
+          <span class="i18n-ru">Тренировать →</span>
+          <span class="i18n-en">Practice →</span>
+        </a>
+      </div>
+
+      <p class="i18n-ru"><b>Формулировка задачи:</b> В карточке даны 3 числа. Нужно найти крайние (наименьшее <b>Min</b> и наибольшее <b>Max</b>) и определить, какое из них <b>дальше</b> от оставшегося третьего числа (<b>Mid</b>).</p>
+      <p class="i18n-en"><b>Problem Statement:</b> Given 3 numbers, identify the extremes (lowest <b>Min</b> and highest <b>Max</b>) and select which extreme is <b>further</b> from the remaining middle value (<b>Mid</b>).</p>
+
+      <table class="compare-table">
+        <tr>
+          <th style="width: 50%;">
+            <span class="i18n-ru">Метод «в лоб» (Медленно: ~2.5 сек)</span>
+            <span class="i18n-en">Brute Force (~2.5s)</span>
+          </th>
+          <th style="width: 50%;">
+            <span class="i18n-ru">Алгоритм средней точки (Быстро: ~0.4 сек)</span>
+            <span class="i18n-en">Midpoint Algorithm (~0.4s)</span>
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <div class="i18n-ru">
+              1. Найти Min и Max.<br>
+              2. Вычесть: <code>Расстояние_1 = Mid - Min</code>.<br>
+              3. Вычесть: <code>Расстояние_2 = Max - Mid</code>.<br>
+              4. Сравнить Расстояние_1 и Расстояние_2.<br>
+              <i>(2 вычитания в уме и 1 сравнение)</i>
+            </div>
+            <div class="i18n-en">
+              1. Identify Min and Max.<br>
+              2. Calculate <code>Dist_1 = Mid - Min</code>.<br>
+              3. Calculate <code>Dist_2 = Max - Mid</code>.<br>
+              4. Compare Dist_1 vs Dist_2.<br>
+              <i>(2 subtractions + 1 comparison)</i>
+            </div>
+          </td>
+          <td>
+            <div class="i18n-ru">
+              1. Найти крайние числа Min и Max.<br>
+              2. Найти середину между ними: <code>Центр = (Min + Max) / 2</code>.<br>
+              3. <b>Правило противоположности:</b><br>
+              • Если третье число <b>БОЛЬШЕ центра</b> (сдвинуто вправо, к Max) ➔ значит оно дальше от <b>Min (левого края)</b>.<br>
+              • Если третье число <b>МЕНЬШЕ центра</b> (сдвинуто влево, к Min) ➔ значит оно дальше от <b>Max (правого края)</b>.<br>
+              <i>(1 быстрый глазомер без вычитаний!)</i>
+            </div>
+            <div class="i18n-en">
+              1. Spot Min and Max.<br>
+              2. Find midpoint: <code>Center = (Min + Max) / 2</code>.<br>
+              3. <b>Opposite Side Rule:</b><br>
+              • If third number <b>> Center</b> (shifted towards Max) ➔ it is further from <b>Min</b>.<br>
+              • If third number <b>< Center</b> (shifted towards Min) ➔ it is further from <b>Max</b>.<br>
+              <i>(1 visual check, zero subtraction)</i>
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <div class="visual-axis-demo">
+        <div style="font-weight: 700; margin-bottom: 16px;">
+          <span class="i18n-ru">Наглядный пример: Тройка чисел <code>[4, 11, 15]</code></span>
+          <span class="i18n-en">Visual Example: Number Triple <code>[4, 11, 15]</code></span>
+        </div>
+        <!-- Responsive Visual Axis -->
+        <div style="background: var(--surface); padding: 18px 20px 28px; border-radius: 8px; border: 1px solid var(--border); margin: 12px 0;">
+          <div style="position: relative; height: 38px; background: var(--surface-2); border-radius: 6px; border: 1px solid var(--border); display: flex; align-items: center;">
+            <!-- Min Node (Left) -->
+            <div style="position: absolute; left: 8px; z-index: 2;">
+              <span style="background: var(--surface); border: 1px solid var(--border); padding: 3px 8px; border-radius: 4px; font-weight: 700; font-family: ui-monospace, monospace; font-size: 13px; white-space: nowrap;">4 (Min)</span>
+            </div>
+
+            <!-- Center Pin (50%) -->
+            <div style="position: absolute; left: 50%; top: 0; bottom: 0; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; z-index: 1;">
+              <div style="width: 2px; height: 38px; background: var(--ink-muted);" title="Center = 9.5"></div>
+              <span style="position: absolute; top: 40px; font-size: 11px; font-family: ui-monospace, monospace; color: var(--ink-muted); white-space: nowrap;">
+                <span class="i18n-ru">Середина = 9.5</span><span class="i18n-en">Center = 9.5</span>
+              </span>
+            </div>
+
+            <!-- Third Value (63.6%) -->
+            <div style="position: absolute; left: 63.6%; transform: translateX(-50%); z-index: 3;">
+              <span style="background: var(--accent); color: #fff; padding: 4px 9px; border-radius: 4px; font-weight: 700; font-family: ui-monospace, monospace; font-size: 13px; box-shadow: 0 2px 5px rgba(0,0,0,0.18); white-space: nowrap;">
+                11 (<span class="i18n-ru">3-е</span><span class="i18n-en">3rd</span>)
+              </span>
+            </div>
+
+            <!-- Max Node (Right) -->
+            <div style="position: absolute; right: 8px; z-index: 2;">
+              <span style="background: var(--surface); border: 1px solid var(--border); padding: 3px 8px; border-radius: 4px; font-weight: 700; font-family: ui-monospace, monospace; font-size: 13px; white-space: nowrap;">15 (Max)</span>
+            </div>
+          </div>
+        </div>
+        <p style="margin-top: 12px; font-size: 14.5px; color: var(--ink);" class="i18n-ru">
+          1. Края: <b>4</b> и <b>15</b>. Середина между ними = <code>(4 + 15) / 2 = 9.5</code>.<br>
+          2. Третье число <b>11</b> больше середины (<code>11 > 9.5</code>), то есть прижато к правому краю (15).<br>
+          3. Следовательно, оно <b>дальше от противоположного левого края (4)</b>. Ответ: <b>4</b>!
+        </p>
+        <p style="margin-top: 12px; font-size: 14.5px; color: var(--ink);" class="i18n-en">
+          1. Extremes: <b>4</b> and <b>15</b>. Center = <code>(4 + 15) / 2 = 9.5</code>.<br>
+          2. The third number <b>11</b> is greater than center (<code>11 > 9.5</code>) — shifted right toward 15.<br>
+          3. Therefore it is <b>further from the opposite left extreme (4)</b>. Correct answer: <b>4</b>!
+        </p>
+      </div>
+    </div>
+
+    <!-- Section 4: Word Meaning -->
+    <div class="algo-card" id="algo-words">
+      <div class="algo-header">
+        <h2>
+          <span class="i18n-ru">04. Word Meaning (Значение слов) — Фильтр полярных антонимов</span>
+          <span class="i18n-en">04. Word Meaning — Polar Antonyms Filter</span>
+        </h2>
+        <a href="word-meaning.html" class="btn btn-primary">
+          <span class="i18n-ru">Тренировать →</span>
+          <span class="i18n-en">Practice →</span>
+        </a>
+      </div>
+
+      <p class="i18n-ru"><b>Формулировка задачи:</b> 3 слова. Два связаны (синонимы или антонимы), одно лишнее.</p>
+      <p class="i18n-en"><b>Problem Statement:</b> 3 words. Two are semantically related (synonyms or opposites), one is odd.</p>
+
+      <ul style="padding-left: 20px; line-height: 1.7;">
+        <li>
+          <b><span class="i18n-ru">Сначала ищем антонимы:</span><span class="i18n-en">Spot Opposites First:</span></b> 
+          <span class="i18n-ru">Полярные противоположности (<i>Вверх/Вниз, Свет/Тьма, День/Ночь</i>) мозг выхватывает быстрее всего. Нашли пару антонимов ➔ жмём 3-е слово!</span>
+          <span class="i18n-en">Polar contrasts (<i>Up/Down, Light/Dark, Day/Night</i>) trigger instant recognition. Spot opposites ➔ immediately click the remaining 3rd word!</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Section 5: Spatial Visualisation -->
+    <div class="algo-card" id="algo-spatial">
+      <div class="algo-header">
+        <h2>
+          <span class="i18n-ru">05. Spatial Visualisation (Пространство) — «Правило хребта» (Spine & Loop)</span>
+          <span class="i18n-en">05. Spatial Visualisation — Spine & Loop Chirality Rule</span>
+        </h2>
+        <a href="spatial-visualisation.html" class="btn btn-primary">
+          <span class="i18n-ru">Тренировать →</span>
+          <span class="i18n-en">Practice →</span>
+        </a>
+      </div>
+
+      <p class="i18n-ru"><b>Формулировка задачи:</b> Две пары символов <code>R</code> под случайными углами поворота. Определить, сколько пар совпадают только вращением (0, 1 или 2), а не зеркальным отражением.</p>
+      <p class="i18n-en"><b>Problem Statement:</b> Two pairs of rotated <code>R</code> characters. Determine how many pairs are identical by rotation only (0, 1, or 2) vs mirrored.</p>
+
+      <table class="compare-table">
+        <tr>
+          <th style="width: 50%;">
+            <span class="i18n-ru">Метод «в лоб» (Медленно: ~2.0 сек)</span>
+            <span class="i18n-en">Brute Force (~2.0s)</span>
+          </th>
+          <th style="width: 50%;">
+            <span class="i18n-ru">Правило хребта (Быстро: ~0.3 сек)</span>
+            <span class="i18n-en">Spine & Loop Rule (~0.3s)</span>
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <div class="i18n-ru">
+              Мысленно вращать нижнюю фигуру в голове до вертикали верхней фигуры.<br>
+              <i>(Высокая нагрузка, частые ошибки при углах 135° и 225°)</i>
+            </div>
+            <div class="i18n-en">
+              Mentally rotating the bottom glyph continuously until upright.<br>
+              <i>(Cognitively exhausting, prone to errors on diagonal angles)</i>
+            </div>
+          </td>
+          <td>
+            <div class="i18n-ru">
+              <b>Отказ от вращения!</b> Использование инварианта стороны петли:<br>
+              1. Проведите мысленный вектор по прямому стволу буквы (хребту) от основания к макушке.<br>
+              2. Посмотрите, с какой стороны петля:<br>
+              • Справа ➔ <b>Оригинал (R)</b><br>
+              • Слева ➔ <b>Зеркало (Я)</b><br>
+              3. Если верх и низ имеют петлю с одной стороны ➔ <b>СОВПАДАЮТ (+1)</b>.
+            </div>
+            <div class="i18n-en">
+              <b>Zero Mental Rotation!</b> Topological chirality invariant:<br>
+              1. Follow straight stem vector from base to top.<br>
+              2. Check which side the circular loop sits on:<br>
+              • Right side ➔ <b>Original (R)</b><br>
+              • Left side ➔ <b>Mirrored (Я)</b><br>
+              3. If both top and bottom have loop on same side ➔ <b>MATCH (+1)</b>.
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <div class="math-box">
+        <b><span class="i18n-ru">Топологический факт:</span><span class="i18n-en">Topological Invariant:</span></b><br>
+        <span class="i18n-ru">Сторона петли относительно ствола инвариантна к любому 2D-повороту!</span>
+        <span class="i18n-en">Loop side relative to straight stem vector never changes under 2D rotations!</span><br>
+        • <code>(R, R)</code> ➔ MATCH (1)<br>
+        • <code>(Я, Я)</code> ➔ MATCH (1)<br>
+        • <code>(R, Я)</code> ➔ DIFFERENT (0)
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 32px;">
+      <a class="btn btn-primary btn-large" href="reasoning.html">
+        <span class="i18n-ru">Перейти к тренировке субтестов (Task 1) →</span>
+        <span class="i18n-en">Start Subtest Practice (Task 1) →</span>
+      </a>
+    </div>
+
+  </main>
+</div>
+
+<script src="trainer-core.js"></script>
+</body>
+</html>

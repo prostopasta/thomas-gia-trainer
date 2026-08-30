@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thomas GIA Aptitude Trainer — Open Source Preparation Platform</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="crumb">
+    <a href="index.html"><b>Thomas GIA Hub</b></a> · 
+    <span class="i18n-ru">Главная и стратегия</span>
+    <span class="i18n-en">Overview & Strategy</span>
+  </div>
+  <div class="spacer"></div>
+  <div class="topbar-actions">
+    <div class="scale-control pill-selector" title="UI Scaling: 50%–150% (Click % to reset 100%)">
+      <button class="pill-option btn-scale-down" title="Zoom out">－</button>
+      <span class="pill-label scale-value-label" style="cursor: pointer; padding: 2px 4px; user-select: none;">100%</span>
+      <button class="pill-option btn-scale-up" title="Zoom in">＋</button>
+    </div>
+    <div class="pill-selector">
+      <button class="pill-option lang-btn" data-lang="ru">RU</button>
+      <button class="pill-option lang-btn active" data-lang="en">EN</button>
+    </div>
+    <button class="navlink btn-sidebar-toggle" title="Toggle Sidebar Menu">☰ Menu: Visible</button>
+    <button id="btn-fullscreen-toggle" class="navlink" title="Toggle Fullscreen">⛶ Fullscreen</button>
+        <button id="btn-sound-toggle" class="navlink">🔊 Sound</button>
+    <button class="theme-toggle" title="Toggle theme">🌓</button>
+  </div>
+</div>
+
+<div class="shell">
+  <aside class="side">
+        <div class="grp">
+      <span class="grp-label i18n-ru">Разделы GIA</span>
+      <span class="grp-label i18n-en">Subtests Navigation</span>
+      <a href="index.html" class="active">
+        <span class="nav-text">
+          <span class="i18n-ru">00. Обзор и стратегия</span>
+          <span class="i18n-en">00. Overview & Strategy</span>
+        </span>
+      </a>
+      <a href="algorithms.html" class="">
+        <span class="nav-text">
+          <span class="i18n-ru">🧠 Алгоритмы и хаки</span>
+          <span class="i18n-en">🧠 Algorithms & Hacks</span>
+        </span>
+      </a>
+      <a href="reasoning.html" class="">
+        <span class="nav-text">
+          <span class="i18n-ru">01. Рассуждения</span>
+          <span class="i18n-en">01. Reasoning</span>
+        </span>
+        <span class="badge">Task 1</span>
+      </a>
+      <a href="perceptual-speed.html" class="">
+        <span class="nav-text">
+          <span class="i18n-ru">02. Скорость восприятия</span>
+          <span class="i18n-en">02. Perceptual Speed</span>
+        </span>
+        <span class="badge">Task 2</span>
+      </a>
+      <a href="number-speed.html" class="">
+        <span class="nav-text">
+          <span class="i18n-ru">03. Числа и точность</span>
+          <span class="i18n-en">03. Number Speed</span>
+        </span>
+        <span class="badge">Task 3</span>
+      </a>
+      <a href="word-meaning.html" class="">
+        <span class="nav-text">
+          <span class="i18n-ru">04. Значение слов</span>
+          <span class="i18n-en">04. Word Meaning</span>
+        </span>
+        <span class="badge">Task 4</span>
+      </a>
+      <a href="spatial-visualisation.html" class="">
+        <span class="nav-text">
+          <span class="i18n-ru">05. Пространство</span>
+          <span class="i18n-en">05. Spatial Visualisation</span>
+        </span>
+        <span class="badge">Task 5</span>
+      </a>
+    </div>
+
+<div class="grp">
+      <span class="grp-label i18n-ru">Официальные ресурсы</span>
+      <span class="grp-label i18n-en">Official Resources</span>
+      <a href="https://www.thomas.co/sites/default/files/2025-03/GIA%20Example%20Booklet_2025.pdf" target="_blank"><span class="nav-text">📄 Thomas Booklet (PDF) ↗</span></a>
+      <a href="https://www.thomas.co/thomas-candidate-test" target="_blank"><span class="nav-text">🌐 Candidate Portal ↗</span></a>
+    </div>
+  </aside>
+
+  <main>
+    <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 8px;">
+      <span class="chip canonical">Thomas International</span>
+      <span class="chip good">GIA Assessment</span>
+      <span class="chip warn">Aptitude Prep</span>
+    </div>
+
+    <h1 class="page-title">
+      <span class="i18n-ru">Тренажёр к тестированию Thomas GIA</span>
+      <span class="i18n-en">Thomas GIA Aptitude Trainer</span>
+    </h1>
+    <p class="page-sub">
+      <span class="i18n-ru">
+        Интерактивная подготовка к стандартизированному психометрическому тесту способностей (General Intelligence Assessment). Отработка скорости, точности и оптимальных когнитивных алгоритмов для всех 5 субтестов.
+      </span>
+      <span class="i18n-en">
+        Interactive open-source practice platform for the standardized Thomas General Intelligence Assessment (GIA). Master speed, accuracy, and optimal cognitive shortcuts across all 5 sub-tests.
+      </span>
+    </p>
+
+    <!-- Guide banner -->
+    <a href="algorithms.html" class="card" style="display: block; text-decoration: none; color: inherit; border: 2px solid var(--accent); background: var(--surface); margin-bottom: 20px;">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <div>
+          <span class="chip good" style="margin-bottom: 6px;">
+            <span class="i18n-ru">Рекомендуется изучить перед стартом</span>
+            <span class="i18n-en">Recommended Reading</span>
+          </span>
+          <h3 style="margin: 4px 0 6px; color: var(--accent-ink);">
+            <span class="i18n-ru">🧠 Руководство по оптимальным алгоритмам и ментальным хакам</span>
+            <span class="i18n-en">🧠 Optimal Algorithms & Mental Hacks Guide</span>
+          </h3>
+          <p style="margin: 0; font-size: 14px; color: var(--ink-muted);">
+            <span class="i18n-ru">
+              Математический разбор 5 субтестов: правило средней точки (Midpoint), топологическая инварианта хиральности (Spine & Loop) и булев XOR.
+            </span>
+            <span class="i18n-en">
+              Mathematical & cognitive shortcuts: Midpoint balance rule, Spine & Loop chirality invariant, and boolean sign XOR.
+            </span>
+          </p>
+        </div>
+        <div style="font-size: 24px; margin-left: 16px;">➔</div>
+      </div>
+    </a>
+
+    <!-- Guidance Callout -->
+    <div class="callout canonical">
+      <div class="callout-title">
+        <span class="i18n-ru">📌 Формат и ключевые правила тестирования Thomas GIA:</span>
+        <span class="i18n-en">📌 Thomas GIA Structure & Golden Rules:</span>
+      </div>
+      <div class="i18n-ru">
+        <ul style="margin: 8px 0 0 0; padding-left: 20px; font-size: 14px; line-height: 1.6;">
+          <li><b>Язык тестирования:</b> Thomas International рекомендует проходить тест на родном языке. Небольшой выигрыш в скорости восприятия даёт существенный прирост итогового процентиля.</li>
+          <li><b>Структура теста:</b> 5 независимых субтестов по 2–3 минуты чистого времени каждый. Перед каждым субтестом предоставляется 8 тренировочных примеров без таймера.</li>
+          <li><b>Штраф за ошибки:</b> В GIA используется взвешенный подсчёт баллов (ошибки штрафуют результат). Оптимальный баланс — держать точность <b>≥ 90–95%</b> при высоком темпе.</li>
+          <li><b>Устройство:</b> Тест проходится только на компьютере с мышью/клавиатурой (мобильные устройства заблокированы платформой).</li>
+        </ul>
+      </div>
+      <div class="i18n-en">
+        <ul style="margin: 8px 0 0 0; padding-left: 20px; font-size: 14px; line-height: 1.6;">
+          <li><b>Language Selection:</b> Thomas International recommends taking the test in your native language where available. Processing speed in your mother tongue yields significantly higher percentiles.</li>
+          <li><b>Test Structure:</b> 5 standalone sections of 2–3 minutes pure timed duration each. Preceded by 8 untimed practice questions per sub-test.</li>
+          <li><b>Penalty for Guessing:</b> Incorrect answers penalize the total score. Aim for <b>≥ 90–95% accuracy</b> at the fastest sustainable rhythm.</li>
+          <li><b>Hardware:</b> Must be taken on desktop/laptop with physical mouse & keyboard (mobile devices blocked).</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- The 5 Sub-tests Grid -->
+    <h2>
+      <span class="n">01</span>
+      <span class="i18n-ru">Пять субтестов Thomas GIA</span>
+      <span class="i18n-en">The 5 GIA Subtests</span>
+    </h2>
+    <p style="color: var(--ink-muted); margin-bottom: 18px;">
+      <span class="i18n-ru">
+        Нажмите на карточку любого субтеста, чтобы запустить тренировку (доступны спринты на 2 мин, 3 мин, алгоритмические режимы и разбор ошибок):
+      </span>
+      <span class="i18n-en">
+        Select any subtest below to launch practice (2-min sprints, 3-min sprints, algorithmic training, and full mistake review):
+      </span>
+    </p>
+
+    <div class="grid cols-2">
+      <a class="card" href="reasoning.html" style="color: inherit; text-decoration: none;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+          <h3>
+            <span class="i18n-ru">01. Reasoning (Логика и рассуждения)</span>
+            <span class="i18n-en">01. Reasoning & Deduction</span>
+          </h3>
+          <span class="chip good">Task 1</span>
+        </div>
+        <p class="i18n-ru">
+          Сравнение двух объектов (<i>«Иван тяжелее Петра»</i>). Утверждение исчезает при нажатии кнопки, затем появляется контрольный вопрос (<i>«Кто легче?»</i>).
+        </p>
+        <p class="i18n-en">
+          Comparing two subjects (<i>"John is heavier than Peter"</i>). Statement disappears on click, followed by verification question (<i>"Who is lighter?"</i>).
+        </p>
+        <div style="margin-top: 14px; font-family: ui-monospace, monospace; font-size: 12px; color: var(--accent-ink);">
+          <span class="i18n-ru">Запустить тренировку →</span>
+          <span class="i18n-en">Launch Trainer →</span>
+        </div>
+      </a>
+
+      <a class="card" href="perceptual-speed.html" style="color: inherit; text-decoration: none;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+          <h3>
+            <span class="i18n-ru">02. Perceptual Speed (Скорость восприятия)</span>
+            <span class="i18n-en">02. Perceptual Speed</span>
+          </h3>
+          <span class="chip good">Task 2</span>
+        </div>
+        <p class="i18n-ru">
+          4 пары букв в столбцах (<code>Е/е</code>, <code>д/Д</code>). Нужно мгновенно подсчитать, сколько пар содержат одинаковые буквы независимо от регистра (от 0 до 4).
+        </p>
+        <p class="i18n-en">
+          4 vertical letter pairs (<code>E/e</code>, <code>d/D</code>). Instantly count how many pairs match case-insensitively (from 0 to 4).
+        </p>
+        <div style="margin-top: 14px; font-family: ui-monospace, monospace; font-size: 12px; color: var(--accent-ink);">
+          <span class="i18n-ru">Запустить тренировку →</span>
+          <span class="i18n-en">Launch Trainer →</span>
+        </div>
+      </a>
+
+      <a class="card" href="number-speed.html" style="color: inherit; text-decoration: none;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+          <h3>
+            <span class="i18n-ru">03. Number Speed & Accuracy (Числа)</span>
+            <span class="i18n-en">03. Number Speed & Accuracy</span>
+          </h3>
+          <span class="chip good">Task 3</span>
+        </div>
+        <p class="i18n-ru">
+          Тройка чисел (например, <code>[4, 11, 15]</code>). Нужно определить, какое из крайних чисел (наибольшее или наименьшее) дальше от оставшегося третьего.
+        </p>
+        <p class="i18n-en">
+          Three numbers (e.g. <code>[4, 11, 15]</code>). Determine which extreme number (highest or lowest) is furthest from the remaining middle value.
+        </p>
+        <div style="margin-top: 14px; font-family: ui-monospace, monospace; font-size: 12px; color: var(--accent-ink);">
+          <span class="i18n-ru">Запустить тренировку →</span>
+          <span class="i18n-en">Launch Trainer →</span>
+        </div>
+      </a>
+
+      <a class="card" href="word-meaning.html" style="color: inherit; text-decoration: none;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+          <h3>
+            <span class="i18n-ru">04. Word Meaning (Значение слов)</span>
+            <span class="i18n-en">04. Word Meaning</span>
+          </h3>
+          <span class="chip good">Task 4</span>
+        </div>
+        <p class="i18n-ru">
+          Тройка слов: два слова связаны по смыслу (синонимы или антонимы), а третье лишнее. Нужно максимально быстро нажать на лишнее слово.
+        </p>
+        <p class="i18n-en">
+          Three words: two are semantically linked (synonyms or opposites), one is the odd one out. Click the odd word as quickly as possible.
+        </p>
+        <div style="margin-top: 14px; font-family: ui-monospace, monospace; font-size: 12px; color: var(--accent-ink);">
+          <span class="i18n-ru">Запустить тренировку →</span>
+          <span class="i18n-en">Launch Trainer →</span>
+        </div>
+      </a>
+
+      <a class="card" href="spatial-visualisation.html" style="color: inherit; text-decoration: none; grid-column: 1 / -1;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+          <h3>
+            <span class="i18n-ru">05. Spatial Visualisation (Пространственное мышление)</span>
+            <span class="i18n-en">05. Spatial Visualisation</span>
+          </h3>
+          <span class="chip good">Task 5</span>
+        </div>
+        <p class="i18n-ru">
+          Две пары символов <code>R</code> под разными углами вращения. Нужно определить, сколько пар совпадают только поворотом (0, 1 или 2), а не зеркальным отражением.
+        </p>
+        <p class="i18n-en">
+          Two pairs of rotated <code>R</code> glyphs. Determine how many pairs are identical via 2D rotation only (0, 1, or 2) vs mirrored.
+        </p>
+        <div style="margin-top: 14px; font-family: ui-monospace, monospace; font-size: 12px; color: var(--accent-ink);">
+          <span class="i18n-ru">Запустить тренировку →</span>
+          <span class="i18n-en">Launch Trainer →</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- Personal Records Dashboard -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 28px; margin-bottom: 12px;">
+      <h2 style="margin: 0;">
+        <span class="n">02</span>
+        <span class="i18n-ru">Ваши лучшие результаты в тренажере</span>
+        <span class="i18n-en">Personal Best Records</span>
+      </h2>
+      <button id="btn-reset-stats" class="navlink" style="font-size: 12px; cursor: pointer; padding: 4px 10px; border-radius: 4px;">
+        🗑️ <span class="i18n-ru">Очистить статистику</span><span class="i18n-en">Reset Statistics</span>
+      </button>
+    </div>
+
+    <div class="card">
+      <div class="overflow">
+        <table class="results-table" id="high-scores-table">
+          <thead>
+            <tr>
+              <th><span class="i18n-ru">Субтест</span><span class="i18n-en">Subtest</span></th>
+              <th><span class="i18n-ru">Балл GIA (pts)</span><span class="i18n-en">Score (pts)</span></th>
+              <th><span class="i18n-ru">Скорость</span><span class="i18n-en">Speed</span></th>
+              <th><span class="i18n-ru">Точность</span><span class="i18n-en">Accuracy</span></th>
+              <th><span class="i18n-ru">Рекордная серия</span><span class="i18n-en">Streak</span></th>
+              <th><span class="i18n-ru">Дата</span><span class="i18n-en">Date</span></th>
+            </tr>
+          </thead>
+          <tbody id="high-scores-body">
+            <!-- Populated via JavaScript -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Strategy Summary -->
+    <h2>
+      <span class="n">03</span>
+      <span class="i18n-ru">Главные правила высокого процентиля GIA</span>
+      <span class="i18n-en">Key Strategies for High GIA Percentiles</span>
+    </h2>
+    <div class="card">
+      <ul style="margin: 0; padding-left: 20px; font-size: 14.5px; line-height: 1.7;">
+        <li style="margin-bottom: 8px;">
+          <b><span class="i18n-ru">Баланс точности и скорости:</span><span class="i18n-en">Accuracy & Speed Balance:</span></b> 
+          <span class="i18n-ru">В Thomas GIA используется штраф за угадывание (неверные ответы вычитаются). Идеальный целевой коридор — <b>90–95% точности</b> при максимально быстром темпе.</span>
+          <span class="i18n-en">Thomas GIA penalizes guessing. Maintain an optimal accuracy corridor of <b>90–95%</b> while pushing response pace.</span>
+        </li>
+        <li style="margin-bottom: 8px;">
+          <b><span class="i18n-ru">Управляйте паузами между блоками:</span><span class="i18n-en">Pacing & Rest:</span></b> 
+          <span class="i18n-ru">Перед каждым из пяти субтестов система Thomas даёт 8 тренировочных примеров без таймера. Используйте их, чтобы настроить глазомер и войти в ритм.</span>
+          <span class="i18n-en">Use the 8 untimed practice questions before each section to calibrate your focus and settle into the cognitive rhythm.</span>
+        </li>
+        <li style="margin-bottom: 8px;">
+          <b><span class="i18n-ru">Позиционирование курсора:</span><span class="i18n-en">Cursor Positioning:</span></b> <span class="i18n-ru">Держите курсор мыши ближе к центру вариантов между вопросами, чтобы минимизировать расстояние перемещения мыши.</span><span class="i18n-en">Keep your mouse cursor centered between option cards to minimize travel distance and response latency.</span></li>
+      </ul>
+    </div>
+  </main>
+</div>
+
+<script src="trainer-core.js"></script>
+<script>
+  function renderHighScores() {
+    const tests = [
+      { id: 'reasoning', ru: '01. Рассуждения (Reasoning)', en: '01. Reasoning' },
+      { id: 'perceptual_speed', ru: '02. Скорость восприятия (Perceptual Speed)', en: '02. Perceptual Speed' },
+      { id: 'number_speed', ru: '03. Числа и точность (Number Speed)', en: '03. Number Speed' },
+      { id: 'word_meaning', ru: '04. Значение слов (Word Meaning)', en: '04. Word Meaning' },
+      { id: 'spatial_visualisation', ru: '05. Пространство (Spatial Visualisation)', en: '05. Spatial Visualisation' }
+    ];
+
+    const tbody = document.getElementById('high-scores-body');
+    if (!tbody) return;
+    const lang = getGlobalLanguage();
+
+    tbody.innerHTML = tests.map(t => {
+      const data = JSON.parse(localStorage.getItem(`gia_best_${t.id}`) || 'null');
+      const name = lang === 'ru' ? t.ru : t.en;
+      if (!data) {
+        return `
+          <tr>
+            <td><b>${name}</b></td>
+            <td colspan="5" style="color: var(--ink-muted); font-style: italic;">
+              ${lang === 'ru' ? 'Нет завершённых попыток' : 'No sessions recorded yet'}
+            </td>
+          </tr>
+        `;
+      }
+      return `
+        <tr>
+          <td><b>${name}</b></td>
+          <td><b style="color: var(--accent-ink);">${data.effectiveScore || 0}</b></td>
+          <td>${data.itemsPerMin || 0} ${lang === 'ru' ? '/мин' : '/min'}</td>
+          <td>${data.accuracy || 0}%</td>
+          <td>${data.bestStreak || 0}</td>
+          <td>${data.date || '-'}</td>
+        </tr>
+      `;
+    }).join('');
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    renderHighScores();
+
+    const resetBtn = document.getElementById('btn-reset-stats');
+    if (resetBtn) {
+      resetBtn.addEventListener('click', () => {
+        const lang = getGlobalLanguage();
+        const msg = lang === 'ru' ? 'Сбросить все сохранённые рекорды?' : 'Reset all saved statistics?';
+        if (confirm(msg)) {
+          ['reasoning', 'perceptual_speed', 'number_speed', 'word_meaning', 'spatial_visualisation'].forEach(id => {
+            localStorage.removeItem(`gia_best_${id}`);
+          });
+          renderHighScores();
+        }
+      });
+    }
+  });
+
+  window.addEventListener('gia-lang-change', renderHighScores);
+</script>
+</body>
+</html>
